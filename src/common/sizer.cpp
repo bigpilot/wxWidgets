@@ -46,7 +46,7 @@ wxIMPLEMENT_CLASS(wxBoxSizer, wxSizer);
 wxIMPLEMENT_CLASS(wxStaticBoxSizer, wxBoxSizer);
 #endif
 #if wxUSE_BUTTON
-wxIMPLEMENT_CLASS(wxStdDialogButtonSizer, wxBoxSizer);
+wxIMPLEMENT_CLASS(wx, wxBoxSizer);
 #endif
 
 WX_DEFINE_EXPORTED_LIST( wxSizerItemList )
@@ -3112,6 +3112,7 @@ void wxStdDialogButtonSizer::Realize()
 
         if (m_buttonAffirmative){
             Add((wxWindow*)m_buttonAffirmative, 0, wxALIGN_CENTRE | wxLEFT | wxRIGHT, m_buttonAffirmative->ConvertDialogToPixels(wxSize(2, 0)).x);
+            m_buttonAffirmative->SetDefault();
             tabOrder.Add(m_buttonAffirmative);
         }
 
